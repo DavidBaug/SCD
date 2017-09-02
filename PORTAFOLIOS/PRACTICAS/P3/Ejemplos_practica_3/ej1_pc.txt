@@ -1,0 +1,21 @@
+////////////////////////
+
+David Gil Bautista
+
+45925324M
+
+////////////////////////
+
+
+Productor Consumidor con paso de mensajes
+
+Funciones:
+
+Productor: Envía al buffer mediante ssend un entero. Las iteraciones son el total de elementos dividido entre el número de consumidores.
+	Una vez llega al buffer y este lo ha leido se puede seguir produciendo.
+
+Consumidor: Este al contrario que el productor itera el numero total de elementos entre los productores. Su funcionamiento consiste en enviar una peticion
+	de lectura al buffer y una vez que el buffer recibe esta petición envia al consumidor un elemento del buffer mediante ssend.
+
+Buffer:	El buffer itera el numero total de elementos que elijamos. Para decidir que hace en cada iteración comprobamos el estado del buffer, es decir, si está
+	vacio llamaremos al productor, si está lleno al consumidor y en otro caso la petición que reciba antes.

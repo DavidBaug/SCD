@@ -1,0 +1,132 @@
+David Gil Bautista
+
+45925324M
+
+Ejercicio Productor-Consumidor
+------------------------------
+
+ej1_Buffer: Monitor
+	numSlots: Tamaño array
+	cont: Contador para recorrer array
+	
+	Produciendo: Semáforo
+	Consumiendo: Semáforo
+
+	depositar (double valor): Si 'cont' = 'numSlots' bloqueamos produciendo hasta que quede
+		sitio donde poder colocar los productos, cuando se pueda colocar se hace un signal
+		a 'consumiendo' para que pueda consumir estos productos.
+
+	consumir: Si cont = 0, 'consumiendo' se bloquea hasta que pueda consumir algún producto del
+		array, cuando consume hace un signal a 'produciendo' para que siga con su función.
+
+ej1_Productor: Hebra encargada de ejecutar depositar.
+
+ej1_Consumidor: Hebra encargada de ejecutar consumir.
+
+Main: Ejecuta todo el programa.
+
+###################################################################################################
+
+Versión LIFO
+
+java ej1_pcl 5 4 4 5 10
+
+Productor 0, produciendo 0.0
+Productor 2, produciendo 2.0
+Productor 3, produciendo 3.0
+Productor 1, produciendo 1.0
+Productor 0, produciendo 1.0
+Productor 1, produciendo 2.0
+Productor 1, produciendo 3.0
+Productor 2, produciendo 3.0
+Productor 1, produciendo 4.0
+Productor 0, produciendo 2.0
+Productor 4, produciendo 4.0
+Productor 2, produciendo 4.0
+Productor 3, produciendo 4.0
+  Consumidor 2, consumiendo 3.0
+  Consumidor 3, consumiendo 3.0
+Productor 4, produciendo 5.0
+  Consumidor 1, consumiendo 4.0
+Productor 2, produciendo 5.0
+  Consumidor 2, consumiendo 4.0
+Productor 0, produciendo 3.0
+  Consumidor 1, consumiendo 5.0
+Productor 4, produciendo 6.0
+  Consumidor 0, consumiendo 3.0
+  Consumidor 2, consumiendo 5.0
+  Consumidor 3, consumiendo 4.0
+Productor 3, produciendo 5.0
+  Consumidor 1, consumiendo 3.0
+Productor 4, produciendo 7.0
+  Consumidor 0, consumiendo 6.0
+  Consumidor 2, consumiendo 4.0
+Productor 3, produciendo 6.0
+  Consumidor 3, consumiendo 2.0
+  Consumidor 1, consumiendo 5.0
+  Consumidor 0, consumiendo 7.0
+  Consumidor 2, consumiendo 2.0
+  Consumidor 3, consumiendo 6.0
+  Consumidor 0, consumiendo 1.0
+  Consumidor 1, consumiendo 1.0
+  Consumidor 0, consumiendo 0.0
+  Consumidor 3, consumiendo 2.0
+
+
+**************************************************************************************************
+
+Versión FIFO
+
+java ej1_pcf 5 4 4 5 10
+
+Productor 0, produciendo 0.0
+Productor 0, produciendo 1.0
+Productor 3, produciendo 3.0
+Productor 4, produciendo 4.0
+Productor 1, produciendo 1.0
+Productor 2, produciendo 2.0
+Productor 0, produciendo 2.0
+  Consumidor 0, consumiendo 1.0
+Productor 3, produciendo 4.0
+Productor 1, produciendo 2.0
+Productor 4, produciendo 5.0
+Productor 2, produciendo 3.0
+Productor 4, produciendo 6.0
+Productor 1, produciendo 3.0
+Productor 3, produciendo 5.0
+  Consumidor 2, consumiendo 3.0
+  Consumidor 0, consumiendo 2.0
+Productor 0, produciendo 3.0
+Productor 2, produciendo 4.0
+  Consumidor 3, consumiendo 1.0
+Productor 4, produciendo 7.0
+  Consumidor 2, consumiendo 4.0
+Productor 1, produciendo 4.0
+  Consumidor 0, consumiendo 2.0
+Productor 3, produciendo 6.0
+Productor 2, produciendo 5.0
+  Consumidor 1, consumiendo 4.0
+  Consumidor 0, consumiendo 3.0
+  Consumidor 2, consumiendo 5.0
+  Consumidor 3, consumiendo 2.0
+  Consumidor 2, consumiendo 3.0
+  Consumidor 0, consumiendo 3.0
+  Consumidor 1, consumiendo 6.0
+  Consumidor 1, consumiendo 7.0
+  Consumidor 1, consumiendo 4.0
+  Consumidor 1, consumiendo 6.0
+  Consumidor 2, consumiendo 4.0
+  Consumidor 3, consumiendo 5.0
+  Consumidor 3, consumiendo 5.0
+  Consumidor 3, consumiendo 3.0
+
+
+
+**************************************************************************************************
+
+Para la versión FIFO recorro el buffer de forma cíclica pero no obtengo la salida que obtenía con el programa de la Práctica 1 a pesar de haberlo implementado
+de la misma forma.
+
+
+
+

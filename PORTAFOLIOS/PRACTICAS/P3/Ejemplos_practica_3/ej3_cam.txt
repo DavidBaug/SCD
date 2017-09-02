@@ -1,0 +1,25 @@
+////////////////////////
+
+David Gil Bautista
+
+45925324M
+
+////////////////////////
+
+Funciones
+
+Filosofo: En este caso introducimos un camarero que es el que controla el estado de los filosofos.
+	Lo primero que hace el filosofo es solititar sentarse al camarero mediante un ssend.
+
+	Una vez se haya sentado pide los tenedores sin necesidad de preocuparse por la primera iteración
+	ya que con el camarero no se produce el interbloqueo.
+
+	Cuando el filósofo consiga los dos tenedores comienza a comer (sleep random) y al acabar suelta los tenedores 
+	y solicita al camarero levantarse. Una vez se haya levantado comienza a pensar.
+
+
+Tenedor: Los tenedores deben estar dentro de un bucle infinito recibiendo las peticiones de los filosofos, ya sea solicitarlos
+	para comer o soltarlos después de haber comido.   (No varia en la versión com camarero)
+
+Camarero: El camarero gestiona la mesa, por lo que solo permitirá que estén sentados 4 filosofos simultáneamente como máximo.
+	Una vez que el número de filosofos sentados sea 4 solo recibirá las peticiones para levantarse.

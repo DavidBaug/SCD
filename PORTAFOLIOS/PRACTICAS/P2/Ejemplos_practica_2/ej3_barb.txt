@@ -1,0 +1,51 @@
+David Gil Bautista
+
+Ejercicio Barbero
+-----------------
+
+Barbería: Monitor
+	sem: silla 
+	sem: barbero
+	sem: cliente
+
+	cortarPelo: Si la silla está vacía 'cliente' espera, cuando este acaba 'barbero' comienza
+		a cortar el pelo y 'silla' se bloquea.
+
+	siguienteCliente: Si 'silla' y 'cliente' está vacío 'barbero' se bloquea, si no, signal
+		a 'cliente' para que empiece a cortarse el pelo.
+	
+	finCliente: Signal a 'silla' indicando que ya está libre.
+
+Barbero: Hebra que regula el paso de los 'clientes' por la 'silla'.
+
+Cliente: Hebra encargada de realizar la ejecución de "cortarPelo".
+
+auxBarbero: Auxiliar que evita el solapamiento eentre los clientes cuando comienza a cortar el pelo.
+
+Main: Ejecución del programa.
+
+###################################################################################################
+
+ *** Barbero se pone a dormir 
+     Cliente empieza a cortarse el pelo
+ +++ Barbero coge otro cliente 
+     Cliente empieza a cortarse el pelo
+ ::: Silla ocupada ::: 
+ ::: Silla ocupada ::: 
+ ::: Silla ocupada ::: 
+ ::: Silla ocupada ::: 
+ --- Barbero termina de afeitar 
+ +++ Barbero coge otro cliente 
+     Cliente empieza a cortarse el pelo
+ ::: Silla ocupada ::: 
+ --- Barbero termina de afeitar 
+ +++ Barbero coge otro cliente 
+     Cliente empieza a cortarse el pelo
+ ::: Silla ocupada ::: 
+ --- Barbero termina de afeitar 
+ +++ Barbero coge otro cliente 
+     Cliente empieza a cortarse el pelo
+ ::: Silla ocupada ::: 
+ --- Barbero termina de afeitar 
+ +++ Barbero coge otro cliente 
+     Cliente empieza a cortarse el pelo

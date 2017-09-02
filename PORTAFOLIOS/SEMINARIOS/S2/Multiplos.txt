@@ -1,0 +1,11 @@
+////////////////////////
+
+David Gil Bautista
+
+45925324M
+
+////////////////////////
+
+Para este seminario se nos pedía modificar el programa de los múltiplos para obtener aquellos que fueran de 3, 5 y 7.
+Para ello creamos un vector con 3 hebras inicializadas con su identificador y para comprobar el resultado creamos un 
+contador en el que vamos actualizando si el indice del bucle es múltiplo de estos números. 

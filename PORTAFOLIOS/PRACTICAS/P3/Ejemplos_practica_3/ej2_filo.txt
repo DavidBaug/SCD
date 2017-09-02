@@ -1,0 +1,30 @@
+////////////////////////
+
+David Gil Bautista
+
+45925324M
+
+////////////////////////
+
+Funciones
+
+Filosofo: Es la función principal que interactua con los tenedores y el estado del filosofo.
+	En primer lugar lo que hacemos es comprobar si es la primera iteración y en ese caso invertimos el orden 
+	en el que se solicitan los tenedores para evitar el interbloqueo.
+
+	Para las demás iteraciones lo que hacemos es solicitar mediante ssend el tenedor izquierdo, una vez se nos permita
+	continuar hacemos lo mismo para el tenedor derecho. Al solicitar los tenedores el filosofo solo podrá elegir aquellos
+	que se situen a sus lados y estos son su id+1 para el izquierdo y su id-1 para el derecho.
+
+	Ej: Si el filosofo es el 2, podrá coger el tenedor 1 y 3.
+
+	Cuando el filósofo consiga los dos tenedores comienza a comer (sleep random) y al acabar suelta los tenedores en
+	el mismo orden que los solicitó, primero el izquierdo y posteriormente el derecho.
+
+	Al quedarse sin tenedores el filósofo comienza a pensar durante un tiempo aleatorio. Después comenzaría de la
+	misma forma.
+
+
+
+Tenedor: Los tenedores deben estar dentro de un bucle infinito recibiendo las peticiones de los filosofos, ya sea solicitarlos
+	para comer o soltarlos después de haber comido.

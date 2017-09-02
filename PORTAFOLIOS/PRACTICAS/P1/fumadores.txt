@@ -1,0 +1,24 @@
+*******************************
+
+Fumadores
+
+David Gil Bautista
+
+45925324M
+
+*******************************
+
+Semáforo estanquero:
+
+Este semáforo está inicializado a 1 (por tanto solo puede producir uno).
+Dicho semáforo impide que se pueda producir más de un ingrediente a la vez, lo que evita errores. Para que este semáforo permita colocar otro ingrediente, debe recibir la señal de que un fumador ha retirado el ingrediente que ha puesto anteriormente.
+
+Semáforo fumador[]:
+
+Estos semáforos están inicializados a 0 (porque no hay ningún ingrediente que puedan coger).
+Para activar este semáforo deben recibir una señal de estanquero indicando que ha puesto un ingrediente. Cada uno de estos semáforos se 
+activa con un ingrediente distinto. Una vez que se ha recogido el ingredinte, el semáforo espera a que haya de nuevo ese ingrediente en concreto para recoger.
+
+Semáforo mutex:
+
+Este semáforo proteje las secciones críticas (está inicializado a 1).
